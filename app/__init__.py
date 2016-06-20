@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from .cipher import Caesar
+from app.cipher import Caesar
 
 app = Flask(__name__)
 
