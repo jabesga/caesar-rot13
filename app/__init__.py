@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
-from app.cipher import Caesar
+from app.cipher.caesar import Caesar
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
+    c = Caesar(3)
     return render_template('index.html')
 
 @app.route("/encrypt/", methods=['POST'])
