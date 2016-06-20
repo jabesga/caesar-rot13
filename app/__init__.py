@@ -9,6 +9,7 @@ def index():
 
 @app.route("/encrypt/", methods=['POST'])
 def encrypt():
+    return 'test'
     c = Caesar(request.json['key'])
     encrypted_sentence = c.encrypt_sentence(request.json['sentence'])
     return str(encrypted_sentence)
