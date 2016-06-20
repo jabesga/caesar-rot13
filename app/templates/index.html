@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
     </head>
     <body>
-        <h1>BOT API</h1>
-        <p>Hello world!</p>
+        <h1>CAESAR CIPHER</h1>
+        <form id="form" action="/encrypt" method="get">
+          <p>
+            <label for="key">Key:</label>
+            <input name="key" type="text">
+          </p>
+          <p>
+            <label for="sentence">Sentence:</label>
+            <input name="sentence" type="text">
+          </p>
+          <p>
+            <input id="encrypt-btn" type="submit" value="Encrypt">
+            <input id="decrypt-btn" type="submit" value="Decrypt">
+          </p>
+        </form>
+        <div style="padding-top: 20px;" class="result">
+
+        </div>
+        <script src="{{ url_for('static', filename='post.js') }}" charset="utf-8"></script>
     </body>
 </html>
