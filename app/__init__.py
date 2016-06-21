@@ -1,20 +1,14 @@
 from flask import Flask, render_template, request, url_for
-from .cipher import Caesar
+from .bot import Bot
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return ''
 
-@app.route("/encrypt/", methods=['POST'])
-def encrypt():
-    c = Caesar(request.json['key'])
-    encrypted_sentence = c.encrypt_sentence(request.json['sentence'])
-    return str(encrypted_sentence)
-
-@app.route("/decrypt/", methods=['POST'])
-def decrypt():
-    c = Caesar(request.json['key'])
-    decrypted_sentence = c.decrypt_sentence(request.json['sentence'])
-    return str(decrypted_sentence)
+@app.route("/hook/", methods=['POST'])
+def hook():
+    b = Bot()
+    result = b.checkResult(request.data)
+    return str(result)
