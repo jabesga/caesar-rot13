@@ -7,6 +7,7 @@ app = Flask(__name__)
 app.debug = True
 
 config = configparser.ConfigParser()
+print(os.path.isfile(os.path.join(os.path.dirname(__file__), 'settings.ini')))
 config.read(os.path.join(os.path.dirname(__file__), 'settings.ini'))
 BOT_TOKEN = config.get("Bot", "token")
 
