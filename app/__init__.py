@@ -6,7 +6,9 @@ import os
 app = Flask(__name__)
 app.debug = True
 
-print(os.path.dirname(os.path.abspath(__file__)))
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), 'settings.ini'))
+BOT_TOKEN = config.get("Bot", "token")
 
 @app.route("/")
 def index():
