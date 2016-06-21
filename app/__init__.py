@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for
 from .bot import Bot
-
+import json
 app = Flask(__name__)
 
 @app.route("/")
@@ -12,4 +12,4 @@ def index():
 @app.route("/hook/", methods=['POST'])
 def hook():
     b = Bot()
-    result = b.checkResult(request.data)
+    result = b.checkResult(json.dumps(request.data))
