@@ -14,7 +14,7 @@ class Bot:
     def __init__(self):
         self.token = '220644016:AAFPqs28vTXx63w9imQHEGxwLdCafur3GA0'
         self.update_id = 0
-        self.caesar = Caesar(3)
+        self.caesar = Caesar(13)
 
     def make_query(self, method, payload=None):
         url = 'https://api.telegram.org/bot{0}/{1}'.format(self.token, method)
@@ -47,7 +47,6 @@ class Bot:
 
     def checkResult(self, result):
         if 'message' in result:
-            print(result)
             if 'type' in result['message']['chat']:
                 if result['message']['chat']['type'] == 'private':
                     if 'text' in result['message']:
