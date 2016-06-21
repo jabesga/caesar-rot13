@@ -11,8 +11,8 @@ import requests
 
 class Bot:
 
-    def __init__(self):
-        self.token = '220644016:AAFPqs28vTXx63w9imQHEGxwLdCafur3GA0'
+    def __init__(self, token):
+        self.token = token
         self.update_id = 0
         self.caesar = Caesar(13)
 
