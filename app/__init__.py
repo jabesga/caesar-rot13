@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for
 from .bot import Bot
 import json
 app = Flask(__name__)
+app.debug = True
 
 @app.route("/")
 def index():
@@ -13,3 +14,4 @@ def index():
 def hook():
     b = Bot()
     result = b.checkResult(request.data[0])
+    return ''
