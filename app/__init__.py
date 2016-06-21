@@ -7,9 +7,9 @@ app = Flask(__name__)
 app.debug = True
 
 config = configparser.ConfigParser()
-route = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'settings.ini')
+route = os.path.join(os.path.dirname(__file__), 'settings.ini')
 print(route)
-config.read(route)
+config.read(os.path.join(os.path.dirname(__file__), 'settings.ini'))
 BOT_TOKEN = config['Bot']['token']
 
 @app.route("/")
