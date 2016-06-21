@@ -5,6 +5,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    b = Bot()
+    b.set_webhook('https://caesar-cipher-encrypt-decrypt.herokuapp.com/hook/')
     return ''
 
 @app.route("/hook/", methods=['POST'])
