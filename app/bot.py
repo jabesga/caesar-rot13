@@ -46,7 +46,10 @@ class Bot:
         return response
 
     def checkResult(self, result):
-        result = json.dumps(result)
+        # result = json.dumps(result)
+        decrypted_sentence = self.caesar.decrypt_sentence(result['message']['text'])
+        self.send_message(result['message']['chat']['id'], text=decrypted_sentence)
+        
         if 'message' in result:
             if 'type' in result['message']['chat']:
                 if result['message']['chat']['type'] == 'private':
