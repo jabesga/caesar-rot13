@@ -11,7 +11,5 @@ def index():
 
 @app.route("/hook/", methods=['POST'])
 def hook():
-    print(request.data)
     b = Bot()
     result = b.checkResult(request.data)
-    return str(result)

@@ -46,14 +46,12 @@ class Bot:
         return response
 
     def checkResult(self, result):
-
         if 'message' in result:
             if 'type' in result['message']['chat']:
                 if result['message']['chat']['type'] == 'private':
                     if 'text' in result['message']:
                         decrypted_sentence = self.caesar.decrypt_sentence(result['message']['text'])
                         self.send_message(result['message']['chat']['id'], text=decrypted_sentence)
-                        return decrypted_sentence
 
         if 'inline_query' in result:
             if result['inline_query']['query']:
@@ -72,5 +70,3 @@ class Bot:
                     data={'inline_query_id': result['inline_query']['id'], 'results': document},
                     timeout=0.5
                 ).json()
-
-        return result
